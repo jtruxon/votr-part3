@@ -1,22 +1,22 @@
 {
-   "_id": "event:demo",
+   "_id": "event:demo1",
    "type": "event",
-   "shortname": "demo",
-   "name": "My Cool Demo Event",
-   "phonenumber": "+15555551212",
+   "shortname": "demo1",
+   "name": "What's yer truck?",
+   "phonenumber": "+16122948683",
    "state": "on",
    "voteoptions": [
        {
            "id": 1,
-           "name": "Foo"
+           "name": "Chevy"
        },
        {
            "id": 2,
-           "name": "Bar"
+           "name": "Ford"
        },
        {
            "id": 3,
-           "name": "Baz"
+           "name": "Toyota"
        }
    ]
 }
