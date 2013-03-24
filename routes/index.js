@@ -42,7 +42,7 @@ var index = exports.index = function(req, res){
     }
     else {
       res.statusCode = 404;
-      res.send('We could not locate your event');
+      res.send('We really could not locate your event');
     }
   });
 }

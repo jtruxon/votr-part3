@@ -28,23 +28,29 @@ var config = require('./config')
 
       var event;
 
+			console.log('1');          	
+
       if (event = eventsCache[view+JSON.stringify(params)]) {
         callback(null, event);
       }
       else {
-        
+      	console.log('2');          	
         db.view('event', view, params, function(err, body) {
           if (err) {
+			console.log('2.1');          	
             console.log(err);
             callback(err, null);
           }
           else {
+			console.log('2.2');          	
             if (body.rows.length == 0) {
-              var msg = 'No match for: ' + view + ', ' + params;
+			  console.log('3.1');          	
+              var msg = 'No match for: ' + view + ', ' + JSON.stringify(params);
               console.log(msg);
               callback(msg, null);              
             }
             else {
+			  console.log('3.2');          	
               event = body.rows[0].value;
               eventsCache[view+JSON.stringify(params)] = event;
               callback(null, event);
@@ -75,7 +81,7 @@ var config = require('./config')
       // The _id of our vote document will be a composite of our event_id and the
       // person's phone number. This will guarantee one vote per event 
       var voteDoc = {  
-        _id: 'vote:' + event._id + ':' + from,
+        _id: 'vote:' + event._id + ':' + Math.random()  + ':' + from,
         type: 'vote',
         event_id: event._id,
         event_phonenumber: event.phonenumber,
@@ -109,7 +115,7 @@ var config = require('./config')
               }
               else {
                 io.sockets.in(votesToSave[i].event_id).emit('vote', votesToSave[i].vote);
-                client.sendSms({To: votesToSave[i].phonenumber, From: votesToSave[i].event_phonenumber, Body: 'Thanks for your vote! // powered by http://twil.io'});
+                //client.sendSms({To: votesToSave[i].phonenumber, From: votesToSave[i].event_phonenumber, Body: 'Thanks for your vote!'});
               }
             }
           }

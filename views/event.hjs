@@ -15,7 +15,6 @@
 		<span class="cta {{ state }}"> to Vote!</span></div>
 		<h2 class="{{ state }}">Voting is: {{ state }}</h2>
 		<div id="chart" style="min-width: 400px; height: 500px; margin: 0 auto"></div>
-		<div class="footer"><a href="http://twilio.com/api"><img src="/images/twilio.png"></a><a href="http://nodejitsu.com"><img src="/images/nodejitsu.png"></a><a href="http://cloudant.com"><img src="/images/cloudant.png"></a></div>
     </div>
 	<script src="/socket.io/socket.io.js"></script>
 	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
@@ -65,7 +64,7 @@
 		    },
 
 		    subtitle: {
-		        text: 'Powered by Twilio, Nodejitsu & Cloudant'
+		        text: ''
 		    },
 
 		    xAxis: {
